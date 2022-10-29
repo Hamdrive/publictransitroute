@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { Home, ViewAllRoutes, ViewSingleRoute } from './pages';
+import { AddRoute, Home, ViewAllRoutes, ViewSingleRoute } from './pages';
 
 function App() {
   return (
@@ -7,6 +7,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="routes" element={<ViewAllRoutes />} />
       <Route path="routes/:routeId" element={<ViewSingleRoute />} />
+      <Route path="addroute" element={<AddRoute />} />
     </Routes>
   );
 }
