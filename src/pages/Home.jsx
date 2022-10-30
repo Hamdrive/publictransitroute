@@ -6,17 +6,15 @@ const Home = () => {
     const navigate = useNavigate()
   return (
     <>
-    <main>
-        <section>
+    <main className='main_home'>
+        <section className='main_mockup'>
             <img src={LandingMockup} alt="Render of the app on phone" />
         </section>
-        <section>
-            <button onClick={() => navigate('/routes')}>
+        <section className='main_navigation'>
+            <button className='action_button' onClick={() => navigate('/routes')}>
                 View Routes
             </button>
-        </section>
-        <section>
-            <button onClick={() => navigate('/addroute')}>
+            <button className='action_button' onClick={() => navigate('/addroute')}>
                 Add New Route
             </button>
         </section>
