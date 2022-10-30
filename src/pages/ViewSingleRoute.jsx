@@ -4,21 +4,36 @@ const ViewSingleRoute = () => {
   return (
     <>
       <main>
-        <section></section>
         <section>
-          <p>Route Name: 123</p>
-          <p>Direction: UP</p>
-          <p>Status: ACTIVE</p>
-          <p></p>
-          <p></p>
+            {/* Insert TomTom Map here */}
         </section>
-        <section>
-          <table>
+        <section className="route_details">
+          <p>
+            <u>
+              <strong>Route Name:</strong>
+            </u>&nbsp;
+            123
+          </p>
+          <p>
+            <u>
+              <strong>Direction:</strong>
+            </u>&nbsp;
+            UP
+          </p>
+          <p>
+            <u>
+              <strong>Status:</strong>
+            </u>&nbsp;
+            ACTIVE
+          </p>
+        </section>
+        <section className="routes_section">
+          <table className="routes_table">
             <thead>
               <tr>
-                <td>Stop Name</td>
-                <td>Latitude</td>
-                <td>Longitude</td>
+                <th>Stop Name</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
               </tr>
             </thead>
             <tbody>

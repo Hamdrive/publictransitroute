@@ -1,20 +1,21 @@
-body {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .navbar {
   position: relative;
   width: 100vw;
+  height: 60px;
   background-color: #3f72af;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex: 0 1 60px;
 }
 
 .navbar_heading {
@@ -23,7 +24,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  color: #F9F7F7;
+  color: #f9f7f7;
 }
 
 .navbar_home {
@@ -31,26 +32,26 @@ body {
   top: 50%;
   left: 2%;
   transform: translate(0, -50%);
-  color: #F9F7F7;
+  color: #f9f7f7;
   font-size: 1.75rem;
   cursor: pointer;
 }
 
-main{
+main {
   width: 100vw;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100%
+  min-height: 100%;
 }
 
-.main_mockup{
+.main_mockup {
   margin: 3rem 0;
 }
 
-.main_navigation{
+.main_navigation {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -58,10 +59,10 @@ main{
 }
 
 .action_button {
-  background-color: #3F72AF;
+  background-color: #3f72af;
   border-radius: 8px;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 14px;
   font-weight: 500;
   height: 40px;
@@ -71,5 +72,73 @@ main{
 
 .action_button:hover,
 .action_button:focus {
-  background-color: #112D4E;
+  background-color: #112d4e;
+}
+
+.search_section {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+
+.search_bar {
+  font-size: 16px;
+  padding: 5px;
+  width: 85%;
+}
+
+.routes_section {
+  margin-top: 3rem;
+  width: 100%;
+  padding: 0 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.routes_table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.routes_table th,
+.routes_table td {
+  border: 1px solid #ffffff;
+  padding: 8px;
+  text-align: center;
+}
+
+.routes_table th {
+  background-color: #3f72af;
+  color: #ffffff;
+}
+
+.routes_table tr:nth-child(odd) {
+  background-color: #f9f7f7;
+  cursor: pointer;
+}
+
+.routes_table tr:nth-child(even) {
+  background-color: #dbe2ef;
+  cursor: pointer;
+}
+
+.route_details {
+  width: 100%;
+  padding: 0 3rem;
+  font-size: 1.2rem;
+}
+
+.route_details p {
+  margin: 8px 0;
+}
+
+.edit_icon{
+  color: green;
+}
+
+.delete_icon{
+  color: red;
 }
