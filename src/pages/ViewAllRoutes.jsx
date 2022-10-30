@@ -1,22 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { FaPen, FaTrashAlt } from 'react-icons/fa';
+import { useNavigate } from "react-router-dom";
 
 const ViewAllRoutes = () => {
+    const navigate = useNavigate()
+    const handleRedirectRoute = (route) => {
+        navigate(route)
+    }
   return (
     <>
       <main>
-        <section>
+        <section className="search_section">
           <input
             type="search"
             name="search_route"
             id="search_route"
+            className="search_bar"
             placeholder="Enter Route Number..."
             aria-label="Search a specific route"
           />
-          <button>Search</button>
+          <button className="action_button">Search</button>
         </section>
-        <section>
-          <table>
+        <section className="routes_section">
+          <table className="routes_table">
             <thead>
               <tr>
                 <th>Route ID</th>
@@ -28,15 +34,17 @@ const ViewAllRoutes = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <Link to="/routes/123">
-                  <td>123</td>
-                  <td>Home</td>
-                  <td>UP</td>
-                  <td>ACTIVE</td>
-                  <td>✏</td>
-                  <td>🗑</td>
-                </Link>
+              <tr onClick={() => handleRedirectRoute("/routes/123")}>
+                <td>123</td>
+                <td>Home</td>
+                <td>UP</td>
+                <td>ACTIVE</td>
+                <td>
+                  <FaPen className="edit_icon" />
+                </td>
+                <td>
+                  <FaTrashAlt className="delete_icon" />
+                </td>
               </tr>
             </tbody>
           </table>

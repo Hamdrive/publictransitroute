@@ -1,13 +1,185 @@
-body {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.navbar {
+  position: relative;
+  width: 100vw;
+  height: 60px;
+  background-color: #3f72af;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar_heading {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #f9f7f7;
+}
+
+.navbar_home {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  transform: translate(0, -50%);
+  color: #f9f7f7;
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+
+main {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.main_mockup {
+  margin: 3rem 0;
+}
+
+.main_navigation {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.action_button {
+  background-color: #3f72af;
+  border-radius: 8px;
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  padding: 10px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.action_button:hover,
+.action_button:focus {
+  background-color: #112d4e;
+}
+
+.search_section {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+
+.search_bar {
+  font-size: 16px;
+  padding: 5px;
+  width: 85%;
+}
+
+.routes_section {
+  margin-top: 3rem;
+  width: 100%;
+  padding: 0 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.routes_table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.routes_table th,
+.routes_table td {
+  border: 1px solid #ffffff;
+  padding: 8px;
+  text-align: center;
+}
+
+.routes_table th {
+  background-color: #3f72af;
+  color: #ffffff;
+}
+
+.routes_table tr:nth-child(odd) {
+  background-color: #f9f7f7;
+  cursor: pointer;
+}
+
+.routes_table tr:nth-child(even) {
+  background-color: #dbe2ef;
+  cursor: pointer;
+}
+
+.route_details {
+  width: 100%;
+  padding: 0 3rem;
+  font-size: 1.2rem;
+}
+
+.route_details p {
+  margin: 8px 0;
+}
+
+.edit_icon {
+  color: green;
+}
+
+.delete_icon {
+  color: red;
+}
+
+.plus_circle_icon {
+  margin-right: 8px;
+  font-size: 1rem;
+}
+
+.add_route_details_section {
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.route_name_input {
+  width: 35%;
+}
+
+.stop_details_section {
+  width: 75%;
+  font-size: 1.2rem;
+}
+
+.single_stop_details_section {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.single_stop_details_section input {
+  width: 30%;
+}
+
+.stop_grip_lines{
+  font-size: 1.5rem;
+  cursor: grab
 }
