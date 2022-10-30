@@ -68,6 +68,8 @@ main {
   height: 40px;
   padding: 10px 16px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .action_button:hover,
@@ -135,10 +137,49 @@ main {
   margin: 8px 0;
 }
 
-.edit_icon{
+.edit_icon {
   color: green;
 }
 
-.delete_icon{
+.delete_icon {
   color: red;
+}
+
+.plus_circle_icon {
+  margin-right: 8px;
+  font-size: 1rem;
+}
+
+.add_route_details_section {
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.route_name_input {
+  width: 35%;
+}
+
+.stop_details_section {
+  width: 75%;
+  font-size: 1.2rem;
+}
+
+.single_stop_details_section {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.single_stop_details_section input {
+  width: 30%;
+}
+
+.stop_grip_lines{
+  font-size: 1.5rem;
+  cursor: grab
 }
