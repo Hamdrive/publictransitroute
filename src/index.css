@@ -167,6 +167,8 @@ main {
 .stop_details_section {
   width: 75%;
   font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
 }
 
 .single_stop_details_section {
@@ -182,4 +184,10 @@ main {
 .stop_grip_lines{
   font-size: 1.5rem;
   cursor: grab
+}
+
+.empty_route_message{
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  text-decoration: underline;
 }
