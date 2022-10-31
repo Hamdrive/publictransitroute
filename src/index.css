@@ -37,7 +37,7 @@
   cursor: pointer;
 }
 
-main {
+main, form {
   width: 100vw;
   height: 100%;
   display: flex;
@@ -96,6 +96,7 @@ main {
   width: 100%;
   padding: 0 3rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -167,6 +168,8 @@ main {
 .stop_details_section {
   width: 75%;
   font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
 }
 
 .single_stop_details_section {
@@ -182,4 +185,17 @@ main {
 .stop_grip_lines{
   font-size: 1.5rem;
   cursor: grab
+}
+
+.empty_route_message{
+  margin: 2rem;
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
+.empty_routes_section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
