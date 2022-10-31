@@ -14,13 +14,14 @@ const RouteProvider = ({ children }) => {
   const [state, dispatch] = useReducer(routeReducer, initialDataState);
 
   useEffect(() => {
-    const getRoutes = JSON.parse(window.localStorage.getItem("routes"));
-    setRoutes(getRoutes);
+    const getRoutes = JSON.parse(localStorage.getItem("routes")) || [];
+    dispatch({ type: "STORE_ROUTES", payload: getRoutes });
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem("routes", JSON.stringify(state));
-    setRoutes(state);
+    if (state?.routes.length > 0) {
+      localStorage.setItem("routes", JSON.stringify(state));
+    }
   }, [state]);
 
   return (

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { FaGripLines, FaPlusCircle } from "react-icons/fa";
+import { FaGripLines, FaPlusCircle, FaTrashAlt } from "react-icons/fa";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { useRoute } from "../context/route-context";
 import { useLocation, useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import { useRef } from "react";
 
 const AddRoute = () => {
   const [newRoute, setNewRoute] = useState({
@@ -17,6 +18,7 @@ const AddRoute = () => {
   const { dispatch } = useRoute();
   const navigate = useNavigate();
   const { state } = useLocation();
+  const formRef = useRef("");
 
   const handleAddStop = () => {
     if (newRoute?.stops?.length === 0) {
@@ -30,7 +32,7 @@ const AddRoute = () => {
             stopId: `${prevRoute?.stops?.length + 1}`,
             stopName: "",
             stopLat: 0,
-            stopLon: 0,
+            stopLng: 0,
           },
         ],
       }));
@@ -73,16 +75,26 @@ const AddRoute = () => {
     setNewRoute((prevRoute) => ({ ...prevRoute, stops: updatedStop }));
   };
 
-  const handleUpdateStopLon = (currentStopId, updatedStopLon) => {
+  const handleUpdateStopLng = (currentStopId, updatedStopLng) => {
     const updatedStop = newRoute?.stops?.map((stop) =>
       stop?.stopId === currentStopId
-        ? { ...stop, stopLon: updatedStopLon }
+        ? { ...stop, stopLng: updatedStopLng }
         : stop
     );
     setNewRoute((prevRoute) => ({ ...prevRoute, stops: updatedStop }));
   };
 
+  const handleDeleteStop = (currentStopId) => {
+    const getOtherStops = newRoute?.stops.filter(
+      (stop) => stop.stopId !== currentStopId
+    );
+    setNewRoute((prevRoute) => ({ ...prevRoute, stops: getOtherStops }));
+  };
+
   const handleNewRoute = (e, dispatchType) => {
+    if (!formRef.current?.reportValidity()) {
+      return;
+    }
     e.preventDefault();
     e.stopPropagation();
     dispatch({ type: dispatchType, payload: newRoute });
@@ -120,7 +132,7 @@ const AddRoute = () => {
   return (
     <DragDropContext onDragEnd={handleOnDragEnd}>
       <main>
-        <form>
+        <form ref={formRef}>
           <section className="add_route_details_section">
             <input
               type="text"
@@ -129,8 +141,8 @@ const AddRoute = () => {
               className="route_name_input"
               placeholder="Enter route name"
               onChange={(e) => handleUpdateRouteName(e?.target?.value)}
-              value={newRoute?.routeName || null}
-              required
+              value={newRoute?.routeName || ""}
+              required={"required"}
             />
             <section>
               <label htmlFor="route_direction">Choose Direction &nbsp;</label>
@@ -139,9 +151,9 @@ const AddRoute = () => {
                 id="route_direction"
                 onChange={(e) => handleUpdateRouteDirection(e?.target?.value)}
                 value={newRoute?.routeDirection}
-                required
+                required={"required"}
               >
-                <option value="up" selected>
+                <option value="up">
                   UP
                 </option>
                 <option value="down">DOWN</option>
@@ -154,9 +166,9 @@ const AddRoute = () => {
                 id="route_status"
                 onChange={(e) => handleUpdateRouteStatus(e?.target?.value)}
                 value={newRoute?.routeStatus}
-                required
+                required={"required"}
               >
-                <option value="active" selected>
+                <option value="active">
                   ACTIVE
                 </option>
                 <option value="inactive">INACTIVE</option>
@@ -198,7 +210,6 @@ const AddRoute = () => {
                             {...provided?.dragHandleProps}
                           >
                             <FaGripLines className="stop_grip_lines" />
-                            {/* <p>{stop.stopName}</p> */}
                             <input
                               type="text"
                               name=""
@@ -210,7 +221,8 @@ const AddRoute = () => {
                                   e?.target?.value
                                 )
                               }
-                              value={newRoute?.stops?.[index]?.stopName || null}
+                              value={newRoute?.stops?.[index]?.stopName || ""}
+                              required={"required"}
                             />
                             <input
                               type="number"
@@ -223,7 +235,8 @@ const AddRoute = () => {
                                   e.target.value
                                 )
                               }
-                              value={newRoute?.stops?.[index]?.stopLat || null}
+                              value={newRoute?.stops?.[index]?.stopLat || ""}
+                              required={"required"}
                             />
                             <input
                               type="number"
@@ -231,12 +244,17 @@ const AddRoute = () => {
                               id=""
                               placeholder="Enter stop longitude"
                               onChange={(e) =>
-                                handleUpdateStopLon(
+                                handleUpdateStopLng(
                                   stop?.stopId,
                                   e?.target?.value
                                 )
                               }
-                              value={newRoute?.stops?.[index]?.stopLon || null}
+                              value={newRoute?.stops?.[index]?.stopLng || ""}
+                              required={"required"}
+                            />
+                            <FaTrashAlt
+                              className="delete_icon"
+                              onClick={() => handleDeleteStop(stop?.stopId)}
                             />
                           </section>
                         )}

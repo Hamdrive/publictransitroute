@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { useRoute } from '../context/route-context';
+import { MapContainer,TileLayer } from "react-leaflet";
+import "leaflet-routing-machine";
+import Map from '../components/Map';
 
 const ViewSingleRoute = () => {
   const [singleRoute, setSingleRoute] = useState([])
@@ -11,10 +14,21 @@ const ViewSingleRoute = () => {
     const getSingleRoute = routes.routes.filter(route => route.routeName === routeName)
     setSingleRoute(getSingleRoute)
   }, [])
+
   return (
     <>
       <main>
-        <section>{/* Insert TomTom Map here */}</section>
+        <section className="route_map_section">
+          <MapContainer
+            className="mapDiv"
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Map allStops={singleRoute?.[0]?.stops} />
+          </MapContainer>
+        </section>
         <section className="route_details">
           <p>
             <u>
@@ -52,7 +66,7 @@ const ViewSingleRoute = () => {
                 <tr key={stop?.stopId}>
                   <td>{stop.stopName}</td>
                   <td>{stop.stopLat}</td>
-                  <td>{stop.stopLon}</td>
+                  <td>{stop.stopLng}</td>
                 </tr>
               ))}
             </tbody>
