@@ -1,30 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
+import { useRoute } from '../context/route-context';
 
 const ViewSingleRoute = () => {
+  const [singleRoute, setSingleRoute] = useState([])
+  const {state: routes} = useRoute()
+  const {routeName} = useParams()
+
+  useEffect(() => {
+    const getSingleRoute = routes.routes.filter(route => route.routeName === routeName)
+    setSingleRoute(getSingleRoute)
+  }, [])
   return (
     <>
       <main>
-        <section>
-            {/* Insert TomTom Map here */}
-        </section>
+        <section>{/* Insert TomTom Map here */}</section>
         <section className="route_details">
           <p>
             <u>
               <strong>Route Name:</strong>
-            </u>&nbsp;
-            123
+            </u>
+            &nbsp;
+            {singleRoute?.[0]?.routeName}
           </p>
           <p>
             <u>
               <strong>Direction:</strong>
-            </u>&nbsp;
-            UP
+            </u>
+            &nbsp;
+            {singleRoute?.[0]?.routeDirection}
           </p>
           <p>
             <u>
               <strong>Status:</strong>
-            </u>&nbsp;
-            ACTIVE
+            </u>
+            &nbsp;
+            {singleRoute?.[0]?.routeStatus}
           </p>
         </section>
         <section className="routes_section">
@@ -37,16 +48,13 @@ const ViewSingleRoute = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>A</td>
-                <td>18.949127</td>
-                <td>72.834770</td>
-              </tr>
-              <tr>
-                <td>B</td>
-                <td>19.124980</td>
-                <td>72.916664</td>
-              </tr>
+              {singleRoute?.[0]?.stops?.map((stop) => (
+                <tr key={stop?.stopId}>
+                  <td>{stop.stopName}</td>
+                  <td>{stop.stopLat}</td>
+                  <td>{stop.stopLon}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </section>
