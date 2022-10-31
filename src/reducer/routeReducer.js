@@ -5,6 +5,8 @@ export const routeReducer = (state, { type, payload }) => {
   };
 
   switch (type) {
+    case "STORE_ROUTES":
+      return {...state, routes: payload?.routes}
     case "ADD_ROUTE":
       return { ...state, routes: [...state.routes, payload] };
 
