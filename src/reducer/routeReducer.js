@@ -11,7 +11,7 @@ export const routeReducer = (state, { type, payload }) => {
     case "UPDATE_ROUTE":
       return {
         ...state,
-        routes: state.routes.includes(payload.id)
+        routes: state.routes.find(route => route.id === payload.id)
           ? updateRoutes(state, payload)
           : state.routes.concat(payload),
       };
