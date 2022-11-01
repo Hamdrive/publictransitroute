@@ -153,10 +153,10 @@ const AddRoute = () => {
                 value={newRoute?.routeDirection}
                 required={"required"}
               >
-                <option value="up">
+                <option value="UP">
                   UP
                 </option>
-                <option value="down">DOWN</option>
+                <option value="DOWN">DOWN</option>
               </select>
             </section>
             <section>
@@ -168,10 +168,10 @@ const AddRoute = () => {
                 value={newRoute?.routeStatus}
                 required={"required"}
               >
-                <option value="active">
+                <option value="ACTIVE">
                   ACTIVE
                 </option>
-                <option value="inactive">INACTIVE</option>
+                <option value="INACTIVE">INACTIVE</option>
               </select>
             </section>
             <section>

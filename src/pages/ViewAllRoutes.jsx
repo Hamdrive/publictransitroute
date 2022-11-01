@@ -57,13 +57,13 @@ const ViewAllRoutes = () => {
               <tbody>
                 {allRoutes?.map((route) => (
                   <tr key={route?.id}>
-                    <td onClick={() => navigate(`/routes/${route?.routeName}`)}>
+                    <td onClick={() => navigate(`/routes/${route?.id}`)}>
                       {route?.routeName}
                     </td>
-                    <td onClick={() => navigate(`/routes/${route?.routeName}`)}>
+                    <td onClick={() => navigate(`/routes/${route?.id}`)}>
                       {route?.routeDirection}
                     </td>
-                    <td onClick={() => navigate(`/routes/${route?.routeName}`)}>
+                    <td onClick={() => navigate(`/routes/${route?.id}`)}>
                       {route?.routeStatus}
                     </td>
                     <td>

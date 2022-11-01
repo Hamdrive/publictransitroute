@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="routes" element={<ViewAllRoutes />} />
-        <Route path="routes/:routeName" element={<ViewSingleRoute />} />
+        <Route path="routes/:routeId" element={<ViewSingleRoute />} />
         <Route path="addroute" element={<AddRoute />} />
       </Routes>
     </>
