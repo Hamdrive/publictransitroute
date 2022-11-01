@@ -8,11 +8,11 @@ import Map from '../components/Map';
 const ViewSingleRoute = () => {
   const [singleRoute, setSingleRoute] = useState([])
   const {state: routes} = useRoute()
-  const {routeName} = useParams()
+  const {routeId} = useParams()
 
   useEffect(() => {
     const getSingleRoute = routes.routes.filter(
-      (route) => route.id === routeName
+      (route) => route.id === routeId
     );
     setSingleRoute(getSingleRoute)
   }, [])
