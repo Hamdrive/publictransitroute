@@ -11,17 +11,13 @@ const useRoute = () => useContext(RouteContext);
 const RouteProvider = ({ children }) => {
   const [routes, setRoutes] = useState([]);
 
-  const [state, dispatch] = useReducer(routeReducer, initialDataState);
+  const [state, dispatch] = useReducer(
+    routeReducer,
+    JSON.parse(localStorage.getItem("routes")) ?? initialDataState
+  );
 
   useEffect(() => {
-    const getRoutes = JSON.parse(localStorage.getItem("routes")) || [];
-    dispatch({ type: "STORE_ROUTES", payload: getRoutes });
-  }, []);
-
-  useEffect(() => {
-    if (state?.routes.length > 0) {
-      localStorage.setItem("routes", JSON.stringify(state));
-    }
+    localStorage.setItem("routes", JSON.stringify(state));
   }, [state]);
 
   return (
