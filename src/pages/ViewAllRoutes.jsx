@@ -90,7 +90,7 @@ const ViewAllRoutes = () => {
               </tbody>
             </table>
           )}
-          {allRoutes?.length === 0 && (
+          {allRoutes.length === 0 && (
             <section className="empty_routes_section">
               <p className="empty_route_message">
                 Oops! No Routes Found. Why not add a new one?
