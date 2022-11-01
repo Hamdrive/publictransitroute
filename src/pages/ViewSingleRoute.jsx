@@ -11,7 +11,9 @@ const ViewSingleRoute = () => {
   const {routeName} = useParams()
 
   useEffect(() => {
-    const getSingleRoute = routes.routes.filter(route => route.routeName === routeName)
+    const getSingleRoute = routes.routes.filter(
+      (route) => route.id === routeName
+    );
     setSingleRoute(getSingleRoute)
   }, [])
 
