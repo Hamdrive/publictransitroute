@@ -98,6 +98,7 @@ main, form {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: scroll;
 }
 
 .routes_table {
@@ -174,10 +175,20 @@ main, form {
   justify-content: center;
 }
 
+.stop_details_section > section {
+  width: 100%;
+}
+
 .single_stop_details_section {
   display: flex;
   justify-content: space-between;
   margin: 1rem 0;
+}
+
+.single_stop_details_section > section {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .single_stop_details_section input {
@@ -204,7 +215,7 @@ main, form {
 
 .route_map_section{
   height: 500px;
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -214,4 +225,53 @@ main, form {
 .mapDiv{
   width: 100%;
   height: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .main_mockup{
+    width: 75%;
+  }
+
+  .main_mockup img {
+    width: 100%;
+  }
+
+  .add_route_details_section, .stop_details_section{
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .add_route_details_section > input, section{
+    margin: 8px 0;
+  }
+
+  .route_name_input{
+    width: 100%;
+  }
+
+  .single_stop_details_section{
+    width: 100vw;
+    padding: 0 16px;
+    align-items: center;
+  }
+
+  .single_stop_details_section > section{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 8px;
+    margin: 0 4px;
+  }
+
+  .single_stop_details_section > section > input {
+    width: 100%;
+    margin: 4px 0;
+  }
+
+  .route_details, .routes_section{
+    padding: 0 8px;
+  }
+  
 }

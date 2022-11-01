@@ -210,48 +210,50 @@ const AddRoute = () => {
                             {...provided?.dragHandleProps}
                           >
                             <FaGripLines className="stop_grip_lines" />
-                            <input
-                              type="text"
-                              name=""
-                              id=""
-                              placeholder="Enter stop name"
-                              onChange={(e) =>
-                                handleUpdateStopName(
-                                  stop?.stopId,
-                                  e?.target?.value
-                                )
-                              }
-                              value={newRoute?.stops?.[index]?.stopName || ""}
-                              required={"required"}
-                            />
-                            <input
-                              type="number"
-                              name=""
-                              id=""
-                              placeholder="Enter stop latitude"
-                              onChange={(e) =>
-                                handleUpdateStopLat(
-                                  stop?.stopId,
-                                  e.target.value
-                                )
-                              }
-                              value={newRoute?.stops?.[index]?.stopLat || ""}
-                              required={"required"}
-                            />
-                            <input
-                              type="number"
-                              name=""
-                              id=""
-                              placeholder="Enter stop longitude"
-                              onChange={(e) =>
-                                handleUpdateStopLng(
-                                  stop?.stopId,
-                                  e?.target?.value
-                                )
-                              }
-                              value={newRoute?.stops?.[index]?.stopLng || ""}
-                              required={"required"}
-                            />
+                            <section>
+                              <input
+                                type="text"
+                                name=""
+                                id=""
+                                placeholder="Enter stop name"
+                                onChange={(e) =>
+                                  handleUpdateStopName(
+                                    stop?.stopId,
+                                    e?.target?.value
+                                  )
+                                }
+                                value={newRoute?.stops?.[index]?.stopName || ""}
+                                required={"required"}
+                              />
+                              <input
+                                type="number"
+                                name=""
+                                id=""
+                                placeholder="Enter stop latitude"
+                                onChange={(e) =>
+                                  handleUpdateStopLat(
+                                    stop?.stopId,
+                                    e.target.value
+                                  )
+                                }
+                                value={newRoute?.stops?.[index]?.stopLat || ""}
+                                required={"required"}
+                              />
+                              <input
+                                type="number"
+                                name=""
+                                id=""
+                                placeholder="Enter stop longitude"
+                                onChange={(e) =>
+                                  handleUpdateStopLng(
+                                    stop?.stopId,
+                                    e?.target?.value
+                                  )
+                                }
+                                value={newRoute?.stops?.[index]?.stopLng || ""}
+                                required={"required"}
+                              />
+                            </section>
                             <FaTrashAlt
                               className="delete_icon"
                               onClick={() => handleDeleteStop(stop?.stopId)}
